@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +7,13 @@ import { Component,OnInit } from '@angular/core';
 })
 
 export class AppComponent {
+  screenWidth = document.body.clientWidth;
+  title = 'App-Compatible';
+  counter: number = 0;
+  isActive = false;
 
-  color1:string = 'grey';
-  color2:string = 'pink';
+  color1:string = '#141414';
+  color2:string = '#141414';
 
   ngOnInit() {
     this.onLoad();
@@ -18,10 +22,6 @@ export class AppComponent {
   onLoad() {
     document.body.style.background = `linear-gradient(45deg, ${this.color1}, ${this.color2})`;
   }
-
-  title = 'App-Compatible';
-  counter: number = 0;
-  isActive = false;
 
   createInput() {
     if(this.counter < 5){
@@ -33,10 +33,19 @@ export class AppComponent {
       const container = document.getElementById("header");
       container?.appendChild(input);
       const newInput = document.getElementById(`newInput${this.counter}`);
-      if(newInput != null){
+      if(newInput != null && this.screenWidth <= 671){
         newInput.style.position = "relative";
         newInput.style.color = "brown";
-        newInput.style.textShadow = "2px 2px 8px grey";
+        newInput.style.fontWeight = "bold";
+        newInput.style.border = "none";
+        newInput.style.background = "transparent";
+        newInput.style.left = "3%";
+        newInput.style.marginBottom = "10%";
+      }
+      else if(newInput != null && this.screenWidth >= 672){
+        newInput.style.position = "relative";
+        newInput.style.color = "brown";
+        newInput.style.fontSize = "large";
         newInput.style.fontWeight = "bold";
         newInput.style.border = "none";
         newInput.style.background = "transparent";
