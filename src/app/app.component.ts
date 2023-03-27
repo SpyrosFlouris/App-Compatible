@@ -33,19 +33,29 @@ export class AppComponent {
       const container = document.getElementById("header");
       container?.appendChild(input);
       const newInput = document.getElementById(`newInput${this.counter}`);
-      if(newInput != null && this.screenWidth <= 671){
+      if(newInput != null && this.screenWidth >= 1024){
+        newInput.style.position = "relative";
+        newInput.style.color = "#E3E3E3";
+        newInput.style.fontWeight = "bold";
+        newInput.style.fontSize = "large";
+        newInput.style.border = "none";
+        newInput.style.background = "transparent";
+        newInput.style.left = "4%";
+        newInput.style.marginBottom = "5%";
+      }
+      else if(newInput != null && this.screenWidth >= 672 && this.screenWidth < 1023){
         newInput.style.position = "relative";
         newInput.style.color = "brown";
+        newInput.style.fontSize = "large";
         newInput.style.fontWeight = "bold";
         newInput.style.border = "none";
         newInput.style.background = "transparent";
         newInput.style.left = "3%";
         newInput.style.marginBottom = "10%";
       }
-      else if(newInput != null && this.screenWidth >= 672){
+      else if(newInput != null && this.screenWidth <= 671){
         newInput.style.position = "relative";
         newInput.style.color = "brown";
-        newInput.style.fontSize = "large";
         newInput.style.fontWeight = "bold";
         newInput.style.border = "none";
         newInput.style.background = "transparent";
@@ -71,6 +81,10 @@ export class AppComponent {
       this.color2 = newcolor2;
       document.body.style.background = `linear-gradient(45deg, ${this.color1}, ${this.color2})`;
     }
+  }
+
+  showWidth(){
+    alert(`${this.screenWidth}`);
   }
 
   
