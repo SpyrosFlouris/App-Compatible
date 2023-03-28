@@ -11,16 +11,39 @@ export class AppComponent {
   title = 'App-Compatible';
   counter: number = 0;
   isActive = false;
+  optionsVisible = false;
 
-  color1:string = '#141414';
-  color2:string = '#141414';
+  bgcolor1:string = '#141414';
+  bgcolor2:string = '';
+  deg:string = '';
+  headercolor:string = 'black';
+  btncolor:string = 'black';
+  btnscolor:string = 'black';
 
   ngOnInit() {
     this.onLoad();
   }
 
   onLoad() {
-    document.body.style.background = `linear-gradient(45deg, ${this.color1}, ${this.color2})`;
+    if(this.bgcolor1 != '' && this.bgcolor2 != '' && this.deg != ''){
+      document.body.style.background = `linear-gradient(${this.deg}, ${this.bgcolor1}, ${this.bgcolor2})`; 
+    }
+    else{
+      document.body.style.background = `${this.bgcolor1}`;
+    }
+    
+    let header = document.getElementById('header');
+    let btn = document.getElementsByClassName('line') as HTMLCollectionOf<HTMLDivElement>;
+    let btns = document.getElementsByClassName('slide') as HTMLCollectionOf<HTMLButtonElement>;
+    if(header != null && btn != null && btns != null){
+      header.style.color = `${this.headercolor}`;
+      for(let i = 0; i < btn.length; i++){
+        btn[i].style.background = `${this.btncolor}`;
+      }
+      for(let j = 0; j < btns.length; j++){
+        btns[j].style.color = `${this.btnscolor}`;
+      }
+    }
   }
 
   createInput() {
@@ -74,19 +97,22 @@ export class AppComponent {
   }
 
   ToggleOptions(){
-    const newcolor1 = prompt("Enter the first color:");
-    const newcolor2 = prompt("Enter the second color:");
-    if(newcolor1 != null && newcolor2 != null){
-      this.color1 = newcolor1;
-      this.color2 = newcolor2;
-      document.body.style.background = `linear-gradient(45deg, ${this.color1}, ${this.color2})`;
+    this.optionsVisible = true;
+  }
+
+  saveOptions(header:string, color1:string, color2:string, degrees:string, btnColor:string){
+    this.headercolor = header;
+    if(color1 != '' && color2 != '' && degrees != ''){
+      this.bgcolor1 = color1;
+      this.bgcolor2 = color2;
+      this.deg = degrees;
     }
+    else {
+      this.bgcolor1 = color1;
+    }
+    this.btnscolor = btnColor;
+    this.onLoad();
+    this.optionsVisible = false;
   }
-
-  showWidth(){
-    alert(`${this.screenWidth}`);
-  }
-
-  
 }
 

@@ -21,8 +21,19 @@
 
   <div id="slide" [ngClass]="{'active': isActive}">
     <button class="slide" (click)="createInput()" tabindex="-1">Add task</button>
-    <button class="slide" tabindex="-1" (click)="showWidth()">About Me!</button>
+    <button class="slide" tabindex="-1">About Me!</button>
     <button class="slide" (click)="ToggleOptions()" tabindex="-1">Options</button>
     <button class="slide" (click)="Exit()" tabindex="-1">Exit</button>
+  </div>
+
+  <div class="options-container" *ngIf="optionsVisible">
+    <form>
+      <input class="colorInput" type="text" placeholder="Header Color" #headerColor>
+      <input class="colorInput" type="text" placeholder="Background Color 1" #color1>
+      <input class="colorInput" type="text" placeholder="Optional Second Color" #color2>
+      <input class="colorInput" type="text" placeholder="degrees" #degrees>
+      <input class="colorInput" type="text" placeholder="Buttons Color" #btnsColor>
+      <button id="colorBtn" type="submit" (click)="saveOptions(headerColor.value, color1.value, color2.value, degrees.value, btnsColor.value)">Save</button>
+    </form>
   </div>
 </body>
