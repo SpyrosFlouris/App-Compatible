@@ -1,16 +1,16 @@
 <body>
   <div id="header">
     <header>To-Do List</header>
-    <input type="text" class="my_input" placeholder="Add your task here :)">
-    <input type="text" class="my_input" placeholder="Add your task here :)">
-    <input type="text" class="my_input" placeholder="Add your task here :)">
-    <input type="text" class="my_input" placeholder="Add your task here :)">
-    <input type="text" class="my_input" placeholder="Add your task here :)">
-    <input type="text" class="my_input" placeholder="Add your task here :)">
-    <input type="text" class="my_input" placeholder="Add your task here :)">
-    <input type="text" class="my_input" placeholder="Add your task here :)">
-    <input type="text" class="my_input" placeholder="Add your task here :)">
-    <input type="text" class="my_input" placeholder="Add your task here :)">
+    <input type="text" class="my_input" placeholder="Add your task here :)" (blur)="saveToLocalStorage('input1')">
+    <input type="text" class="my_input" placeholder="Add your task here :)" (blur)="saveToLocalStorage('input2')">
+    <input type="text" class="my_input" placeholder="Add your task here :)" (blur)="saveToLocalStorage('input3')">
+    <input type="text" class="my_input" placeholder="Add your task here :)" (blur)="saveToLocalStorage('input4')">
+    <input type="text" class="my_input" placeholder="Add your task here :)" (blur)="saveToLocalStorage('input5')">
+    <input type="text" class="my_input" placeholder="Add your task here :)" (blur)="saveToLocalStorage('input6')">
+    <input type="text" class="my_input" placeholder="Add your task here :)" (blur)="saveToLocalStorage('input7')">
+    <input type="text" class="my_input" placeholder="Add your task here :)" (blur)="saveToLocalStorage('input8')">
+    <input type="text" class="my_input" placeholder="Add your task here :)" (blur)="saveToLocalStorage('input9')">
+    <input type="text" class="my_input" placeholder="Add your task here :)" (blur)="saveToLocalStorage('input10')">
   </div>
 
   <button id="btn" [ngClass]="{'active': isActive}" (click)="ToggleActive()">

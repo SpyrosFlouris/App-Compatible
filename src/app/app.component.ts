@@ -20,7 +20,65 @@ export class AppComponent {
   btnscolor:string = 'grey';
 
   ngOnInit() {
+    alert("retrieving data");
+      const input1Value = localStorage.getItem('input1');
+      if (input1Value) {
+        alert("input1");
+        (document.querySelector('[name="input1"]') as HTMLInputElement).value = input1Value;
+      }
+    
+      const input2Value = localStorage.getItem('input2');
+      if (input2Value) {
+        (document.querySelector('[name="input2"]') as HTMLInputElement).value = input2Value;
+      }
+    
+      const input3Value = localStorage.getItem('input3');
+      if (input3Value) {
+        (document.querySelector('[name="input3"]') as HTMLInputElement).value = input3Value;
+      }
+    
+      const input4Value = localStorage.getItem('input4');
+      if (input4Value) {
+        (document.querySelector('[name="input4"]') as HTMLInputElement).value = input4Value;
+      }
+    
+      const input5Value = localStorage.getItem('input5');
+      if (input5Value) {
+        (document.querySelector('[name="input5"]') as HTMLInputElement).value = input5Value;
+      }
+
+      const input6Value = localStorage.getItem('input6');
+      if (input6Value) {
+        (document.querySelector('[name="input6"]') as HTMLInputElement).value = input6Value;
+      }
+
+      const input7Value = localStorage.getItem('input7');
+      if (input7Value) {
+        (document.querySelector('[name="input7"]') as HTMLInputElement).value = input7Value;
+      }
+
+      const input8Value = localStorage.getItem('input8');
+      if (input8Value) {
+        (document.querySelector('[name="input8"]') as HTMLInputElement).value = input8Value;
+      }
+
+      const input9Value = localStorage.getItem('input9');
+      if (input9Value) {
+        (document.querySelector('[name="input9"]') as HTMLInputElement).value = input9Value;
+      }
+      const input10Value = localStorage.getItem('input10');
+      if (input10Value) {
+        (document.querySelector('[name="input10"]') as HTMLInputElement).value = input10Value;
+      }
+
     this.onLoad();
+  }
+
+  saveToLocalStorage(inputName: string) {
+    alert(`Saving input ${inputName} to localStorage`);
+    const inputValue = (document.querySelector(`[name="${inputName}"]`) as HTMLInputElement).value;
+    alert(`Input value is ${inputValue}`);
+    localStorage.setItem(inputName, inputValue);
   }
 
   onLoad() {
@@ -84,5 +142,5 @@ export class AppComponent {
     this.onLoad();
     this.optionsVisible = false;
   }
+  
 }
-
